@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+       <div class="container">
+        <div id="main">
+            <h1>Add Task</h1>
+            <hr>
+            <div id="addtaskdiv">
+                <label for="task">Task:</label>
+                <input type="text" id="task" name="task">
+                <br>
+                <br>
+                <label>Type:</label>
+                <br>
+                <div id="types">
+                    <ul>
+                        <li>Work</li>
+                        <li>Home</li>
+                        <li>Other</li>
+                    </ul>
+                </div>
+                <br>
+                <button class="taskbuttons" id="addtask" onclick="addtask()">Add Task</button>
+                <br>
+                <button class="taskbuttons" id="showtask" onclick="showtask()">Show task</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
