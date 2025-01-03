@@ -5,32 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
-       <div class="container">
-        <div id="main">
-            <h1>Add Task</h1>
-            <hr>
-            <div id="addtaskdiv">
-                <label for="task">Task:</label>
-                <input type="text" id="task" name="task">
-                <br>
-                <br>
-                <label>Type:</label>
-                <br>
-                <div id="types">
-                    <ul>
-                        <li>Work</li>
-                        <li>Home</li>
-                        <li>Other</li>
-                    </ul>
-                </div>
-                <br>
-                <button class="taskbuttons" id="addtask" onclick="addtask()">Add Task</button>
-                <br>
-                <button class="taskbuttons" id="showtask" onclick="showtask()">Show task</button>
+    <header>
+        <div class="itemholder" id="title">
+            <h1>Tasks:</h1>
         </div>
-    </div>
+        <hr>
+    </header>
+    <main>
+        <div class="container">
+            <div id="tasklist">
+                <ul id="unorderedlist">
+                    <li>
+                        <div class="task">
+                            <label id="taskname">Task 1</label>
+                            <div class="type">Default</div>
+                            <label id="status">InComplete</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task">
+                            <label id="taskname">Task 2</label>
+                            <div class="type">Default</div>
+                            <label id="status">InComplete</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task">
+                            <label id="taskname">Task 3</label>
+                            <div class="type">Default</div>
+                            <label id="status">InComplete</label>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="task">
+                            <label id="taskname">Task 4</label>
+                            <div class="type">Default</div>
+                            <label id="status">InComplete</label>
+                        </div>
+                    </li>
+                        <div class="task">
+                            <label id="taskname">Task 5</label>
+                            <div class="type">Default</div>
+                            <label id="status">InComplete</label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="contentholder">
+                <button class="taskbuttons" id="addtaskhtml" onclick="openaddtaskhtml()">Add Task</button>
+            </div>
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>

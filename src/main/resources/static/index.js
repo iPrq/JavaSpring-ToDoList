@@ -1,24 +1,25 @@
-const taskname = document.getElementById('task');
+const taskname = document.getElementById('taskname');
+const addtaskhtml = document.getElementById('addtaskhtml');
 let tasktype;
 let status;
 
-console.log("Working")
+console.log('JS working');
+function tasktypeclicked() {
+    tasktype = document.getElementById('tasktype').value;
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    const tasktypes = document.querySelectorAll('#types li')
-    tasktypes.forEach(item => {
-        item.addEventListener('click',(event) => {
-            tasktype = event.target.innerHTML;
-        });
-    });
-});
 
 function addtask() {
-    if(taskname && tasktype) {
+    if(taskname !== null && tasktype !== null) {
     const task = taskname.value;
     status = 0;
     posttask(task, tasktype, status);
-    console.log('Task working')
+    console.log('Task working');
+    }
+    else{
+        console.log(taskname)
+        console.log(tasktype)
+        console.log('Task invalid');
     }
 }
 
@@ -63,3 +64,8 @@ function showtask() {
     console.log("Showing tasks");
 }
 
+function openaddtaskhtml() {
+    console.log("Opening addtask.html");
+    window.open('addtask.html');
+
+}

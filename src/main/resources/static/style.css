@@ -1,89 +1,154 @@
-*{
-    font-family: "Arial";
-}
 
 body{
-    margin: 0;
-    padding: 0;
+    font-family: "Open Sans";
+    margin:0;
+    background: linear-gradient(to right, #ffffff, #e0e0e0);
 }
+.itemholder{
+
+    padding-left:10px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0)
+}
+
+#title{
+    padding: 40px;
+    padding-top: 20px;
+    padding-bottom: 3px;
+}
+#title h1{
+    margin-bottom: 4px;
+    margin-left: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    font-family: "Open Sans";
+}
+
 .container{
-    display: flex;
+    
+    padding: 15px;
     height: 100vh;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-    background-color: #432371;
-    background-image: linear-gradient(0deg, #D9AFD9 0%, #9F6976 100%);
-
-    }
-
-#main{
-    background-color: #432371;
-    border: 2px solid black;
-    border-radius: 15px;
-    padding: 20px;
-    width: 25%;
-    height: auto;
-    overflow: hidden;
-}
-
-#main label,h1{
-    color: white;
-}
-
-#task{
-    background-color: #d3d3d3;
-    border-radius: 3px;
-    color:black;
-}
-
-#main h1{
-    text-align: center;
-    font-family: "Arial";
-}
-
-#types{
-    padding: 0px;
-    margin: 0px;
-    display: inline-block;
-}
-#types ul{
-    display:absolute;
-    padding: 0px;
-    list-style-type: none;
-}
-
-#types ul li{
-    display: inline;
-    padding: 7px;
-    background-color: #f0f0f0;
     border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
-#types ul li:hover{
-    background-color: #d3d3d3;
-    text-decoration: underline;
+#tasklist{
+    margin-left:50px;
+    display:block;
+    height: 400px;
+    width: 600px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px #00000026;
+    overflow:auto;
+    background: linear-gradient(to right, #56ab2f, #a8e063);
 }
 
+#tasklist ul{
+    padding-left:5px;
+    padding-right: 5px;
+    list-style-type: none;
+    margin-top: 25px;
+}
 
+#tasklist ul.li{
+    display:block;
+    padding:2px;
 
-.taskbuttons{
+}
+
+.task{
+    padding:10px;
+    margin:2px;
+    background-color: hsla(0, 0%, 0%, 0.041);
     border-radius: 10px;
-    display: block;
-    height: 30px;
-    width: 100px;
-    margin: 20px auto;
-    margin-bottom: 3px;
 }
 
-#showtask{
-    margin-top: 0px;
+.type{
+    display:inline-block;
+    margin-left:90px;
+    padding:8px;
+    padding-top: 7px;
+    color: white;
+    border-radius: 13px;
+    background-color: green;
 }
 
-.taskbuttons:hover{
-    background-color: #d3d3d3;
-    cursor: pointer;
-    text-decoration: underline;
+#status{
+    margin-left: 260px;
+    text-align: right;
+}
+
+.task label{
+    color:#f0f0f0;
+}
+
+.contentholder{
+    margin:10px;
+    display: flex;
+    padding-left: 290px;
+    align-content: center;
+
+}
+
+.contentholder button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #56ab2f;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+}
+
+.contentholder button:hover{
+    background-color: #a8e063;
+    cursor: pointer
+}
+
+#addtaskcontainer{
+    display:flex;
+    align-items: top;
+    justify-content: center;
+}
+
+#addtaskdiv{
+    display:block;
+    height: 350px;
+    width: 600px;
+    background: linear-gradient(#56ab2f, #a8e063);
+    border-radius: 15px;
+    padding-left:20px;
+    padding-right: 20px;
+}
+
+#addtaskdiv label{
+    color: white;
+    font-size: 18px;
+    padding-left: 15px;
+}
+
+#addtaskdiv input{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+#addtaskdiv select{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+#addtaskdiv button{
+    
+    margin-left: 260px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #56ab2f;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
 }
