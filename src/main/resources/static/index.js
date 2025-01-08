@@ -1,9 +1,8 @@
-const taskname = document.getElementById('taskname');
+const tasklist = document.getElementById("unorderedlist");
 const addtaskhtml = document.getElementById('addtaskhtml');
 let tasktype;
 let status;
 
-console.log('JS working');
 function tasktypeclicked() {
     tasktype = document.getElementById('tasktype').value;
 }
@@ -65,7 +64,42 @@ function showtask() {
 }
 
 function openaddtaskhtml() {
-    console.log("Opening addtask.html");
-    window.open('addtask.html');
+    window.open("addtask.html");
+}
 
+function addtask(taskName, taskType, status) {
+    let clonedtask = document.getElementById("tasktemplate").cloneNode(true);
+    clonedtask.id = `task1`;
+    
+    // Get labels and other elements within the cloned task
+    let labels = clonedtask.querySelectorAll("label");
+    let typeDiv = clonedtask.querySelector("div"); // Adjust the selector as needed
+    
+    // Reference the label elements correctly
+    let tasknameLabel = labels[0];
+    let statusLabel = labels[1];
+    
+    // Update text content of the labels
+    tasknameLabel.textContent = taskName;
+    typeDiv.textContent = taskType;
+    
+    if (status === 1) {
+        statusLabel.textContent = "Complete";
+    } else {
+        statusLabel.textContent = "Incomplete";
+    }
+
+    // Append the cloned task to the task list
+    document.getElementById("tasklist").appendChild(clonedtask);
+}
+
+function addtaskclicked() {
+    let taskname = document.getElementById("newtaskname").value;
+    let tasktype = document.getElementById("newtasktype").value;
+    console.log(tasktype)
+    opener.addtask(taskname,tasktype,0);
+    save = true;
+    if(save===true) {
+        posttask(taskname,tasktype,0);
+    }
 }
