@@ -2,7 +2,8 @@ const tasklist = document.getElementById("unorderedlist");
 const addtaskhtml = document.getElementById('addtaskhtml');
 let tasktype;
 let status;
-
+let addhtml;
+document.addEventListener('DOMContentLoaded', () => {gettasks()})
 function tasktypeclicked() {
     tasktype = document.getElementById('tasktype').value;
 }
@@ -51,20 +52,19 @@ async function gettasks() {
 
     if(response.ok) {
         const data = await response.json();
-        console.log(data);
+        addtasklist(data);
     } 
     else if(!response.ok) {
         console.log("Error");
     }
 }
 
-function showtask() {
-    gettasks();
-    console.log("Showing tasks");
+function addtasklist(data) {
+    data.forEach(element => {addtask(element.taskname,element.type,element.status)})
 }
 
 function openaddtaskhtml() {
-    window.open("addtask.html");
+   addhtml = window.open("addtask.html");
 }
 
 function addtask(taskName, taskType, status) {
@@ -72,21 +72,24 @@ function addtask(taskName, taskType, status) {
     clonedtask.id = `task1`;
     
     // Get labels and other elements within the cloned task
-    let labels = clonedtask.querySelectorAll("label");
-    let typeDiv = clonedtask.querySelector("div"); // Adjust the selector as needed
+    let labels = clonedtask.querySelectorAll("p");
+    let divs = clonedtask.querySelectorAll("div"); // Adjust the selector as needed
     
     // Reference the label elements correctly
     let tasknameLabel = labels[0];
     let statusLabel = labels[1];
-    
+    let typeDiv = divs[0];
+    let statusDiv = divs[1];
     // Update text content of the labels
     tasknameLabel.textContent = taskName;
     typeDiv.textContent = taskType;
     
     if (status === 1) {
-        statusLabel.textContent = "Complete";
+        statusDiv.textContent = "Complete";
+        statusDiv.classList.remove('statusincomplete');
+        statusDiv.classList.add('statuscomplete');
     } else {
-        statusLabel.textContent = "Incomplete";
+        statusDiv.textContent = "Pending";
     }
 
     // Append the cloned task to the task list
@@ -96,7 +99,6 @@ function addtask(taskName, taskType, status) {
 function addtaskclicked() {
     let taskname = document.getElementById("newtaskname").value;
     let tasktype = document.getElementById("newtasktype").value;
-    console.log(tasktype)
     opener.addtask(taskname,tasktype,0);
     save = true;
     if(save===true) {

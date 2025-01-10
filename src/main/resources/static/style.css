@@ -1,21 +1,21 @@
-
-body{
+body {
     font-family: "Open Sans";
-    margin:0;
+    margin: 0;
     background: linear-gradient(to right, #ffffff, #e0e0e0);
 }
-.itemholder{
 
-    padding-left:10px;
-    background: linear-gradient(to right, #ffffff, #f0f0f0)
+.itemholder {
+    padding-left: 10px;
+    background: linear-gradient(to right, #ffffff, #f0f0f0);
 }
 
-#title{
+#title {
     padding: 40px;
     padding-top: 20px;
     padding-bottom: 3px;
 }
-#title h1{
+
+#title h1 {
     margin-bottom: 4px;
     margin-left: 10px;
     font-size: 30px;
@@ -24,71 +24,82 @@ body{
     font-family: "Open Sans";
 }
 
-.container{
-    
+.container {
     padding: 15px;
     height: 100vh;
 }
 
-#tasklist{
-    margin-left:50px;
-    display:block;
-    height: 400px;
-    width: 600px;
+#tasklist {
+    margin-left: 10px;
+    display: block;
+    height: 800px;
+    width: 90vw; /* Fixed 'vm' to 'vw' */
     border-radius: 15px;
     box-shadow: 5px 5px 5px #00000067;
-    overflow:auto;
+    overflow: auto;
     background: linear-gradient(to right, #56ab2f, #a8e063);
 }
 
-#tasklist ul{
-    padding-left:5px;
+#tasklist ul {
+    padding-left: 5px;
     padding-right: 5px;
     list-style-type: none;
     margin-top: 25px;
 }
 
-#tasklist ul.li{
-    display:block;
-    padding:2px;
-
-}
-
 .task{
-    padding:10px;
-    margin:2px;
+    position: relative;
+    padding: 15px;
+    margin: 2px;
     background-color: hsla(0, 0%, 0%, 0.24);
     border-radius: 10px;
 }
 
-.type{
-    display:inline-block;
-    margin-left:90px;
-    padding:8px;
-    padding-top: 7px;
+.type {
+    display: inline-block;
+    position: absolute;
+    left: 400px;
+    bottom: 5px;
+    width: fit-content;
+    padding: 10px;
+    padding-top: 10px;
     color: white;
     border-radius: 13px;
     background-color: green;
 }
 
-.status{
-    margin-left: 260px;
-    text-align: right;
+.statusincomplete {
+    display: inline-block;
+    color:darkred;
+    background: red;
+    padding: 10px;
+    border-radius: 15px;
+    bottom: 5px;
+    width: fit-content;
+    position: absolute;
+    right:20px;
 }
 
-.task label{
-    color:#f0f0f0;
+.statuscomplete {
+    display: inline-block;
+    color: darkgreen;
+    background: lightgreen;
+    padding: 10px;
+    border-radius: 15px;
+    bottom: 5px;
+    width: fit-content;
+    position: absolute;
+    right:20px;
 }
 
-.contentholder{
-    margin:10px;
+.contentholder {
+    margin: 10px;
     display: flex;
     padding-left: 290px;
     align-content: center;
-
 }
 
-.contentholder button{
+.contentholder button {
     margin: 10px;
     padding: 10px;
     border-radius: 10px;
@@ -99,49 +110,48 @@ body{
     border: none;
 }
 
-.contentholder button:hover{
+.contentholder button:hover {
     background-color: #a8e063;
-    cursor: pointer
+    cursor: pointer;
 }
 
-#addtaskcontainer{
-    display:flex;
+#addtaskcontainer {
+    display: flex;
     align-items: top;
     justify-content: center;
 }
 
-#addtaskdiv{
-    display:block;
+#addtaskdiv {
+    display: block;
     height: 350px;
     width: 600px;
     background: linear-gradient(#56ab2f, #a8e063);
     border-radius: 15px;
-    padding-left:20px;
+    padding-left: 20px;
     padding-right: 20px;
 }
 
-#addtaskdiv label{
+#addtaskdiv label {
     color: white;
     font-size: 18px;
     padding-left: 15px;
 }
 
-#addtaskdiv input{
+#addtaskdiv input {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
     border: none;
 }
 
-#addtaskdiv select{
+#addtaskdiv select {
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
     border: none;
 }
 
-#addtaskdiv button{
-    
+#addtaskdiv button {
     margin-left: 260px;
     padding: 10px;
     border-radius: 10px;
@@ -152,10 +162,22 @@ body{
     border: none;
 }
 
-#tasktemplate{
+#tasktemplate {
     display: none;
 }
 
-.taskdisplay{
-    display:block;
+.task p:not(.status){
+    display: inline;
+    margin: 0px;
+    color:white;
+}
+
+.statusincomplete:hover{
+    background-color: white;
+    transition: background-color, 0.2s;
+}
+
+.statuscomplete:hover{
+    background-color: white;
+    transition: background-color, 0.2s;
 }
