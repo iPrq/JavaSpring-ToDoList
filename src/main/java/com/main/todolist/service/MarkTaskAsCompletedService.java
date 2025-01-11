@@ -19,6 +19,7 @@ public class MarkTaskAsCompletedService implements Command<Integer, ResponseEnti
 
     @Override
     public ResponseEntity<TaskDTO> execute(Integer id) {
+        System.out.println(id);
         Optional<Task> task = tasksRepository.findById(id);
         if(task.isPresent()) {
             Task taskToComplete = task.get();

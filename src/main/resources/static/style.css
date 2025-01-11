@@ -161,7 +161,10 @@ body {
     font-weight: bold;
     border: none;
 }
-
+#addtaskdiv button:hover{
+    color: darkgreen;
+    background-color: #a8e063;
+}
 #tasktemplate {
     display: none;
 }

@@ -8,6 +8,13 @@ function tasktypeclicked() {
     tasktype = document.getElementById('tasktype').value;
 }
 
+document.addEventListener('storage', (event) =>
+{if(event.key === 'reloadPage' && event.newValue === 'true'){
+    location.reload();
+    localStorage.setItem('reloadPage','false');
+    console.log("reloaded")
+}})
+
 
 function addtask() {
     if(taskname !== null && tasktype !== null) {
@@ -35,7 +42,7 @@ async function posttask(task, tasktype, status) {
 
     if(response.ok) {
         const data = await response.json();
-        console.log(data);
+        localStorage.setItem('reloadPage','false');
     }
     else if(!response.ok) {
         console.log("Error");
@@ -105,24 +112,52 @@ function addtask(id,taskName, taskType, status) {
 function addtaskclicked() {
     let taskname = document.getElementById("newtaskname").value;
     let tasktype = document.getElementById("newtasktype").value;
-    opener.addtask(taskname,tasktype,0);
     save = true;
     if(save===true) {
         posttask(taskname,tasktype,0);
     }
 }
 
-function markAsDoneButtonPressed(id) {
-    console.log(id);
+function markAsDoneButtonPressed(Buttonid) {
+    const id = Buttonid.match(/\d+/)[0];
     const userResponse = window.confirm("Mark As Complete?");
     if(userResponse) {
-        console.log("Completed");
+       markAsComplete(id);
     }
 }
 
-function deleteTaskButtonPressed(id) {
+function deleteTaskButtonPressed(Buttonid) {
+    const id = Buttonid.match(/\d+/)[0];
     const userResponse = window.confirm("Are you sure?");
     if(userResponse) {
-        console.log("Deleted");
+        deleteTaskMapping(id);
+    }
+}
+
+
+async function deleteTaskMapping(id) {
+   const response = await fetch(`http://localhost:8080/task/delete/${id}`, {
+       method: `DELETE`,});
+
+    if(response.status === 204) {
+        location.reload();
+    }
+    else{
+        console.log("Error");
+    }
+}
+
+async function markAsComplete(id) {
+    const response = await fetch(`http://localhost:8080/task/complete/${id}`,{
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+            }
+        });
+    if(!response.ok) {
+        console.error("error");
+    }
+    else{
+        location.reload();
     }
 }

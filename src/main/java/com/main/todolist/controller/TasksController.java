@@ -42,7 +42,7 @@ public class TasksController {
         return markTaskAsCompletedService.execute(id);
     }
 
-    @DeleteMapping("//delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Void> deleteTask(@PathVariable Integer id) {
         return deleteTaskService.execute(id);
     }

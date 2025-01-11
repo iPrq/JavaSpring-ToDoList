@@ -15,6 +15,7 @@ public class DeleteTaskService implements Command<Integer, ResponseEntity<Void>>
 
     @Override
     public ResponseEntity<Void> execute(Integer input) {
+        System.out.println(input);
         tasksRepository.deleteById(input);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
