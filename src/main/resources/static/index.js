@@ -60,29 +60,35 @@ async function gettasks() {
 }
 
 function addtasklist(data) {
-    data.forEach(element => {addtask(element.taskname,element.type,element.status)})
+    data.forEach(element => {addtask(element.id,element.taskname,element.type,element.status)})
 }
 
 function openaddtaskhtml() {
    addhtml = window.open("addtask.html");
 }
 
-function addtask(taskName, taskType, status) {
+function addtask(id,taskName, taskType, status) {
     let clonedtask = document.getElementById("tasktemplate").cloneNode(true);
-    clonedtask.id = `task1`;
+    clonedtask.id = `task${id}`;
     
     // Get labels and other elements within the cloned task
     let labels = clonedtask.querySelectorAll("p");
-    let divs = clonedtask.querySelectorAll("div"); // Adjust the selector as needed
+    let divs = clonedtask.querySelectorAll("div");
+    let buttons = clonedtask.querySelectorAll("button"); // Adjust the selector as needed
     
     // Reference the label elements correctly
     let tasknameLabel = labels[0];
     let statusLabel = labels[1];
     let typeDiv = divs[0];
     let statusDiv = divs[1];
+    let markAsDoneButton = buttons[0];
+    let deleteTaskButton = buttons[1];
     // Update text content of the labels
     tasknameLabel.textContent = taskName;
     typeDiv.textContent = taskType;
+
+    markAsDoneButton.id = `mark${id}`;
+    deleteTaskButton.id = `delete${id}`;
     
     if (status === 1) {
         statusDiv.textContent = "Complete";
@@ -103,5 +109,20 @@ function addtaskclicked() {
     save = true;
     if(save===true) {
         posttask(taskname,tasktype,0);
+    }
+}
+
+function markAsDoneButtonPressed(id) {
+    console.log(id);
+    const userResponse = window.confirm("Mark As Complete?");
+    if(userResponse) {
+        console.log("Completed");
+    }
+}
+
+function deleteTaskButtonPressed(id) {
+    const userResponse = window.confirm("Are you sure?");
+    if(userResponse) {
+        console.log("Deleted");
     }
 }

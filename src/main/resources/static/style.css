@@ -30,7 +30,7 @@ body {
 }
 
 #tasklist {
-    margin-left: 10px;
+    margin:auto;
     display: block;
     height: 800px;
     width: 90vw; /* Fixed 'vm' to 'vw' */
@@ -95,7 +95,7 @@ body {
 .contentholder {
     margin: 10px;
     display: flex;
-    padding-left: 290px;
+    justify-content: center;
     align-content: center;
 }
 
@@ -180,4 +180,46 @@ body {
 .statuscomplete:hover{
     background-color: white;
     transition: background-color, 0.2s;
+}
+
+.markAsDoneButton{
+    position: absolute;
+    right: 250px;
+    border-radius: 15px;
+    padding: 10px;
+    bottom: 7px;
+    display: none;
+    border: none;
+}
+
+.task:hover button{
+    display: block;
+    transition: display,0.2s;
+}
+
+.markAsDoneButton:hover{
+    background: #a8e063;
+    color: darkgreen;
+}
+
+.task:hover{
+    background-color: hsla(0, 0%, 0%, 0.493) ;
+    transition: all, 0.2s;
+}
+
+.deleteTaskButton{
+    display:none;
+    position: absolute;
+    background: rgb(252, 80, 80);
+    border:none;
+    color: white;
+    padding:10px;
+    bottom: 7px;
+    border-radius: 15px;
+    right:150px;
+}
+
+.deleteTaskButton:hover{
+    background-color: red;
+    color: white;
 }
